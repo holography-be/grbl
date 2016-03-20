@@ -63,7 +63,7 @@ ISR(CONTROL_INT_vect)
 
 
 // Returns if safety door is ajar(T) or closed(F), based on pin state.
-uint8_t system_check_safety_door_ajar()
+uint8_t system_check_safety_door_open()
 {
   #ifdef ENABLE_SAFETY_DOOR_INPUT_PIN
     #ifdef INVERT_CONTROL_PIN
@@ -138,7 +138,7 @@ uint8_t system_execute_line(char *line)
             report_feedback_message(MESSAGE_ALARM_UNLOCK);
             sys.state = STATE_IDLE;
             // Don't run startup script. Prevents stored moves in startup from causing accidents.
-            if (system_check_safety_door_ajar()) { // Check safety door switch before returning.
+            if (system_check_safety_door_open()) { // Check safety door switch before returning.
               bit_true(sys_rt_exec_state, EXEC_SAFETY_DOOR);
               protocol_execute_realtime(); // Enter safety door mode.
             }
@@ -174,7 +174,7 @@ uint8_t system_execute_line(char *line)
             // Only perform homing if Grbl is idle or lost.
             
             // TODO: Likely not required.
-            if (system_check_safety_door_ajar()) { // Check safety door switch before homing.
+            if (system_check_safety_door_open()) { // Check safety door switch before homing.
               bit_true(sys_rt_exec_state, EXEC_SAFETY_DOOR);
               protocol_execute_realtime(); // Enter safety door mode.
             }

@@ -15,8 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="grbl.ino" />
     <None Include="examples\grblUpload\grblUpload.ino" />
+    <None Include="grbl.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.grbl.vsarduino.h">

@@ -32,11 +32,11 @@
 #define SERIAL_RX USART0_RX_vect
 #define SERIAL_UDRE USART0_UDRE_vect
 
-// Increase Buffers to make use of extra SRAM
-//#define RX_BUFFER_SIZE		256
-//#define TX_BUFFER_SIZE		128
-//#define BLOCK_BUFFER_SIZE	36
-//#define LINE_BUFFER_SIZE	100
+// Increase Buffers to make use of extra SRAM  // JDU uncomment 
+#define RX_BUFFER_SIZE		256
+#define TX_BUFFER_SIZE		128
+#define BLOCK_BUFFER_SIZE	36
+#define LINE_BUFFER_SIZE	100
 
 // Define step pulse output pins. NOTE: All step bit pins must be on the same port.
 #define STEP_DDR      DDRA
@@ -134,5 +134,5 @@
   
   #define SPINDLE_PWM_DDR		DDRH
   #define SPINDLE_PWM_PORT    PORTH
-  #define SPINDLE_PWM_BIT		4 // MEGA2560 Digital Pin 97
+  #define SPINDLE_PWM_BIT		4 // MEGA2560 Digital Pin 97 ???
 #endif // End of VARIABLE_SPINDLE

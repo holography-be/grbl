@@ -56,7 +56,7 @@
 #define STATE_HOMING        bit(2) // Performing homing cycle
 #define STATE_CYCLE         bit(3) // Cycle is running or motions are being executed.
 #define STATE_HOLD          bit(4) // Active feed hold
-#define STATE_SAFETY_DOOR   bit(5) // Safety door is ajar. Feed holds and de-energizes system.
+#define STATE_SAFETY_DOOR   bit(5) // Safety door is open. Feed holds and de-energizes system.
 #define STATE_MOTION_CANCEL bit(6) // Motion cancel by feed hold and return to idle. 
 
 // Define system suspend states.
