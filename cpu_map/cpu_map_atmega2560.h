@@ -45,7 +45,9 @@
 #define X_STEP_BIT    2 // MEGA2560 Digital Pin 24
 #define Y_STEP_BIT    3 // MEGA2560 Digital Pin 25
 #define Z_STEP_BIT    4 // MEGA2560 Digital Pin 26
-#define STEP_MASK ((1<<X_STEP_BIT)|(1<<Y_STEP_BIT)|(1<<Z_STEP_BIT)) // All step bits
+#define A_STEP_BIT	  5 // MAGE2560 Digital Pin 27 // JDU Step Motor A
+//#define STEP_MASK ((1<<X_STEP_BIT)|(1<<Y_STEP_BIT)|(1<<Z_STEP_BIT)) // All step bits
+#define STEP_MASK ((1<<X_STEP_BIT)|(1<<Y_STEP_BIT)|(1<<Z_STEP_BIT)|(1<<A_STEP_BIT)) // All step bits // JDU Add Bit for Motor A
 
 // Define step direction output pins. NOTE: All direction pins must be on the same port.
 #define DIRECTION_DDR     DDRC
@@ -54,7 +56,9 @@
 #define X_DIRECTION_BIT   7 // MEGA2560 Digital Pin 30
 #define Y_DIRECTION_BIT   6 // MEGA2560 Digital Pin 31
 #define Z_DIRECTION_BIT   5 // MEGA2560 Digital Pin 32
-#define DIRECTION_MASK ((1<<X_DIRECTION_BIT)|(1<<Y_DIRECTION_BIT)|(1<<Z_DIRECTION_BIT)) // All direction bits
+#define A_DIRECTION_BIT   4 // MEGA2560 Digital Pin 33	// JDU Direction Motor A
+//#define DIRECTION_MASK ((1<<X_DIRECTION_BIT)|(1<<Y_DIRECTION_BIT)|(1<<Z_DIRECTION_BIT)) // All direction bits
+#define DIRECTION_MASK ((1<<X_DIRECTION_BIT)|(1<<Y_DIRECTION_BIT)|(1<<Z_DIRECTION_BIT)|(1<<A_DIRECTION_BIT)) // All direction bits	// JDU Add bit for Motor A
 
 // Define stepper driver enable/disable output pin.
 #define STEPPERS_DISABLE_DDR   DDRB
@@ -104,10 +108,12 @@
 #define FEED_HOLD_BIT     1  // MEGA2560 Analog Pin 9
 #define CYCLE_START_BIT   2  // MEGA2560 Analog Pin 10
 #define SAFETY_DOOR_BIT   3  // MEGA2560 Analog Pin 11
+#define LASER_TEMP_BIT	  4  // MEGA2560 Analog Pin 12 // JDU Add Laser Temp Alarm
 #define CONTROL_INT       PCIE2  // Pin change interrupt enable pin
 #define CONTROL_INT_vect  PCINT2_vect
 #define CONTROL_PCMSK     PCMSK2 // Pin change interrupt register
-#define CONTROL_MASK ((1<<RESET_BIT)|(1<<FEED_HOLD_BIT)|(1<<CYCLE_START_BIT)|(1<<SAFETY_DOOR_BIT))
+//#define CONTROL_MASK ((1<<RESET_BIT)|(1<<FEED_HOLD_BIT)|(1<<CYCLE_START_BIT)|(1<<SAFETY_DOOR_BIT))
+#define CONTROL_MASK ((1<<RESET_BIT)|(1<<FEED_HOLD_BIT)|(1<<CYCLE_START_BIT)|(1<<SAFETY_DOOR_BIT)|(1<<LASER_TEMP_BIT)) // JDU Add Bit for Laser Temp Alarm
 #define CONTROL_INVERT_MASK CONTROL_MASK // May be re-defined to only invert certain control pins.
 
 // Define probe switch input pin.
@@ -134,5 +140,5 @@
   
   #define SPINDLE_PWM_DDR		DDRH
   #define SPINDLE_PWM_PORT    PORTH
-  #define SPINDLE_PWM_BIT		4 // MEGA2560 Digital Pin 97 ???
+  #define SPINDLE_PWM_BIT		4 // MEGA2560 Digital Pin 7 // Correct Pin Number
 #endif // End of VARIABLE_SPINDLE
