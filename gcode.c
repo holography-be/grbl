@@ -617,13 +617,13 @@ uint8_t gc_execute_line(char *line)
       switch (gc_block.non_modal_command) {        
         case NON_MODAL_GO_HOME_0: 
           // [G28 Errors]: Cutter compensation is enabled. 
-          // Retreive G28 go-home position data (in machine coordinates) from EEPROM
+          // Retrieve G28 go-home position data (in machine coordinates) from EEPROM
           if (!axis_words) { axis_command = AXIS_COMMAND_NONE; } // Set to none if no intermediate motion.
           if (!settings_read_coord_data(SETTING_INDEX_G28,parameter_data)) { FAIL(STATUS_SETTING_READ_FAIL); }
           break;
         case NON_MODAL_GO_HOME_1:
           // [G30 Errors]: Cutter compensation is enabled. 
-          // Retreive G30 go-home position data (in machine coordinates) from EEPROM
+          // Retrieve G30 go-home position data (in machine coordinates) from EEPROM
           if (!axis_words) { axis_command = AXIS_COMMAND_NONE; } // Set to none if no intermediate motion.
           if (!settings_read_coord_data(SETTING_INDEX_G30,parameter_data)) { FAIL(STATUS_SETTING_READ_FAIL); }
           break;

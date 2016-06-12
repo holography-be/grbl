@@ -104,7 +104,7 @@ void protocol_main_loop()
     // line buffer, which is limited in size. The g-code standard actually states a line can't
     // exceed 256 characters, but the Arduino Uno does not have the memory space for this.
     // With a better processor, it would be very easy to pull this initial parsing out as a 
-    // seperate task to be shared by the g-code parser and Grbl's system commands.
+    // separate task to be shared by the g-code parser and Grbl's system commands.
     
     while((c = serial_read()) != SERIAL_NO_DATA) {
       if ((c == '\n') || (c == '\r')) { // End of line reached

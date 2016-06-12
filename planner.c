@@ -420,7 +420,7 @@ uint8_t plan_check_full_buffer()
 void plan_sync_position()
 {
   // TODO: For motor configurations not in the same coordinate frame as the machine position,
-  // this function needs to be updated to accomodate the difference. 
+  // this function needs to be updated to accommodate the difference. 
   uint8_t idx;
   for (idx=0; idx<N_AXIS; idx++) {
     #ifdef COREXY
