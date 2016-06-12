@@ -70,7 +70,7 @@ void plan_reset();
 #endif
 
 // Called when the current block is no longer needed. Discards the block and makes the memory
-// availible for new blocks.
+// available for new blocks.
 void plan_discard_current_block();
 
 // Gets the current block. Returns NULL if buffer empty
